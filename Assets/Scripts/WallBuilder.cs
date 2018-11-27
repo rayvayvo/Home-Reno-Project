@@ -36,19 +36,19 @@ public class WallBuilder : MonoBehaviour {
                     //ShootScript.NearestGridPoint(); //find nearest point to place wall
                     if (UIGridLocator.UIEquipText == "Wall")
                     {
-                        Instantiate(Wall, new Vector3(CubePlacer.NearestX, 4, CubePlacer.NearestY), Quaternion.identity);
+                        Instantiate(Wall, new Vector3((int)CubePlacer.NearestX, 4, (int)CubePlacer.NearestY), Quaternion.identity);
                     }
                     else if (UIGridLocator.UIEquipText == "Half Wall")
                     {
-                        Instantiate(HalfWall, new Vector3(CubePlacer.NearestX, 4, CubePlacer.NearestY), Quaternion.identity);
+                        Instantiate(HalfWall, new Vector3((int)CubePlacer.NearestX, 4, (int)CubePlacer.NearestY), Quaternion.identity);
                     }
                     else if (UIGridLocator.UIEquipText == "Lintel")
                     {
-                        Instantiate(Lintel, new Vector3(CubePlacer.NearestX, 8, CubePlacer.NearestY), Quaternion.identity);
+                        Instantiate(Lintel, new Vector3((int)CubePlacer.NearestX, 8, (int)CubePlacer.NearestY), Quaternion.identity);
                     }
                     else if (UIGridLocator.UIEquipText == "Combo Wall")
                     {
-                        Instantiate(ComboWall, new Vector3(CubePlacer.NearestX, 0, CubePlacer.NearestY), Quaternion.identity);
+                        Instantiate(ComboWall, new Vector3((int)CubePlacer.NearestX, 0, (int)CubePlacer.NearestY), Quaternion.identity);
                     }
 
                     Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY] = 1;
