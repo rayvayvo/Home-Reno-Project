@@ -20,18 +20,16 @@ public class WallDestroyer : MonoBehaviour {
         if (Input.GetButton("Fire1") && ClickDelay > 0.1)
         {
             var ShootScript = FirstPersonCharacter.GetComponent<CubePlacer>(); // set ShootScript to equal the CubePlacer script
-            ShootScript.Shoot();
 
-
-            if (ShootScript.GridHit.distance > 0) //check to see if raycast hits
+            if (CubePlacer.DidShootHit == true && CubePlacer.HighlighterTarget != "G") //check to see if raycast hits
             {
                
-                if (Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY] == 1)
+                if (Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY] == 1)
                 {
                     //ShootScript.NearestGridPoint(); //find nearest point to place wall
                     Destroy(ShootScript.GridHit.collider.transform.parent.gameObject);
 
-                    Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY] = 0;
+                    Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY] = 0;
                 }
             }
             ClickDelay = 0;

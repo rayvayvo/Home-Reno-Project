@@ -15,15 +15,15 @@ public class CubePlacer : MonoBehaviour {
     public GameObject LintelHighlighter;
     public GameObject LintelBottomHighlighter;
 
+    public static string HighlighterTarget;
     public static int count;
     public static float NearestX;
     public static float NearestY;
     public static float NearestParentX;
     public static float NearestParentY;
-    public bool DidShootHit;
+    public static bool DidShootHit;
     private static int WallPanelAngle;
     public static string HighlighterSurface;
-    public static string debugHLT;
 
 
     public void Awake()
@@ -52,9 +52,27 @@ public class CubePlacer : MonoBehaviour {
         {
             
             DidShootHit = true;
+            HighlighterTarget = GridHit.collider.ToString().Substring(0, 1);
+
+            if (HighlighterTarget == "W")
+            {
+                HighlighterSurface = GridHit.collider.ToString().Substring(8, 1);
+            }
+            if (HighlighterTarget == "H")
+            {
+                HighlighterSurface = GridHit.collider.ToString().Substring(12, 1);
+            }
+            if (HighlighterTarget == "L")
+            {
+                HighlighterSurface = GridHit.collider.ToString().Substring(10, 1);
+            }
+            if (HighlighterTarget == "C")
+            {
+                HighlighterSurface = GridHit.collider.ToString().Substring(15, 1);
+            }
             //(debug text below. displays on screen raycast info)
             //UIGridLocator.UIEquipText = GridHit.collider.ToString() + ":(" + NearestX + " , " + NearestY + "): [" + NearestParentX + ", " + NearestParentY + "] " + "WPA:" + WallPanelAngle + ":::" + WallPanelHighlighter.transform.rotation.x;
-                //DidShootHit.ToString() + ", "+ GridHit.point[0].ToString() + "[" + PointXRounder + ":" + PointYRounder + "] " + ": (" + NearestX + " : " + NearestY + ")" + GridHit.collider;
+            //DidShootHit.ToString() + ", "+ GridHit.point[0].ToString() + "[" + PointXRounder + ":" + PointYRounder + "] " + ": (" + NearestX + " : " + NearestY + ")" + GridHit.collider;
             //[nearest point info]GridHit.point.ToString() + " = (" + NearestX + " : " + NearestY + ")";
             //[raycast return info]count + ": " + GridHit.distance.ToString() + ": " + GridHit.collider.ToString().Substring(0, 6) + ": " + GridHit.point.ToString();
             //EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
@@ -75,12 +93,14 @@ public class CubePlacer : MonoBehaviour {
     {
         if (DidShootHit == true)
         {
-            var HighlighterTarget = GridHit.collider.ToString().Substring(0, 1); //get collider hit variable
+            //var HighlighterTarget = GridHit.collider.ToString().Substring(0, 1); //get collider hit variable
 
             if (HighlighterTarget == "G")
             {
                 NearestX = GridHit.collider.transform.position.x;
                 NearestY = GridHit.collider.transform.position.z;
+                NearestParentX = GridHit.collider.transform.position.x;
+                NearestParentY = GridHit.collider.transform.position.z;
 
             }
             else if (HighlighterTarget == "W" || HighlighterTarget == "H" || HighlighterTarget == "L" || HighlighterTarget == "C")
@@ -99,9 +119,6 @@ public class CubePlacer : MonoBehaviour {
 
         if (DidShootHit == true)
         {
-            var HighlighterTarget = GridHit.collider.ToString().Substring(0, 1); //get collider hit variable
-            debugHLT = HighlighterTarget;
-
             if (CurrentEquip == "Painter") //select only wall tiles
             {
                     if (HighlighterTarget == "W")
@@ -296,6 +313,19 @@ public class CubePlacer : MonoBehaviour {
                         }
 
                     }
+                    else if(HighlighterTarget == "G")
+                    {
+                    LintelHighlighter.SetActive(false);
+                    LintelPanelHighlighter.SetActive(false);
+                    LintelBottomHighlighter.SetActive(false);
+                    WallHighlighter.SetActive(false);
+                    HalfWallHighlighter.SetActive(false);
+                    HalfWallPanelHighlighter.SetActive(false);
+                    WallPanelHighlighter.SetActive(false);
+                    WallHighlighter.SetActive(false);
+                    TileHighlighter.SetActive(true);
+                    TileHighlighter.transform.position = new Vector3(NearestX, 0.001f, NearestY);
+                }
                     else
                     {
                         TileHighlighter.SetActive(false);
@@ -304,7 +334,10 @@ public class CubePlacer : MonoBehaviour {
                         HalfWallPanelHighlighter.SetActive(false);
                         WallPanelHighlighter.SetActive(false);
                         WallHighlighter.SetActive(false);
-                    }
+                        LintelHighlighter.SetActive(false);
+                        LintelPanelHighlighter.SetActive(false);
+                        LintelBottomHighlighter.SetActive(false);
+                }
             }
 
             if (CurrentEquip == "WallDestroyer") //select only wall tiles
@@ -367,7 +400,6 @@ public class CubePlacer : MonoBehaviour {
                     if (UIGridLocator.UIEquipText == "Wall" || UIGridLocator.UIEquipText == "Lintel" || UIGridLocator.UIEquipText == "Combo Wall")
                     {
                         TileHighlighter.SetActive(false);
-                        WallHighlighter.SetActive(false);
                         HalfWallHighlighter.SetActive(false);
                         HalfWallPanelHighlighter.SetActive(false);
                         WallPanelHighlighter.SetActive(false);

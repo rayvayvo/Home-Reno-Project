@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 
 public class Debug : MonoBehaviour {
-
-    public Text text;
+    
+    public static Text text;
     public GameObject GridObject;
 
     void Awake()
@@ -22,6 +22,13 @@ public class Debug : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-         //text.text = "Debug: (" + CubePlacer.NearestX + " : " + CubePlacer.NearestY + ")" + Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].ToString();
-	}
+        if (CubePlacer.DidShootHit == true)
+        {            
+        text.text = "Debug: (" + CubePlacer.NearestX + " : " + CubePlacer.NearestY + ")" + Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].ToString() + "{" + CubePlacer.HighlighterSurface + "}";
+        }
+        if (CubePlacer.DidShootHit == true && CubePlacer.HighlighterTarget == "W")
+        {
+            text.text = "Debug: (" + CubePlacer.NearestX + " : " + CubePlacer.NearestY + ")" + "<" + CubePlacer.NearestParentX + " : " + CubePlacer.NearestParentY + ">" + " |" + Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].ToString() + ":" + Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].ToString() + "| " + "{" + CubePlacer.HighlighterSurface + "}";
+        }
+    }
 }
