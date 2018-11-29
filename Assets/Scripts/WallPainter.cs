@@ -27,7 +27,7 @@ public class WallPainter : MonoBehaviour {
             if (CubePlacer.DidShootHit == true) //check to see if raycast hits
             {
                 
-                if (ShootScript.GridHit.collider.ToString().Substring(0, 8) == "WallSide" || ShootScript.GridHit.collider.ToString().Substring(0, 8) == "HalfWall" || ShootScript.GridHit.collider.ToString().Substring(0, 6) == "Lintel" || ShootScript.GridHit.collider.ToString().Substring(0, 5) == "Combo" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Grid") 
+                if (ShootScript.GridHit.collider.ToString().Substring(0, 8) == "WallSide" || ShootScript.GridHit.collider.ToString().Substring(0, 8) == "HalfWall" || ShootScript.GridHit.collider.ToString().Substring(0, 6) == "Lintel" || ShootScript.GridHit.collider.ToString().Substring(0, 5) == "Combo" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Grid" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Room") 
                 {
                     ShootScript.GridHit.transform.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(PaintMenu.LastRed,PaintMenu.LastGreen,PaintMenu.LastBlue, 255);
                 }

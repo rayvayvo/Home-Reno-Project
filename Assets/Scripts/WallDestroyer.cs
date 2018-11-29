@@ -23,12 +23,18 @@ public class WallDestroyer : MonoBehaviour {
 
             if (CubePlacer.DidShootHit == true && CubePlacer.HighlighterTarget != "G") //check to see if raycast hits
             {
-               
+
                 if (Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY] == 1)
                 {
-                    //ShootScript.NearestGridPoint(); //find nearest point to place wall
-                    Destroy(ShootScript.GridHit.collider.transform.parent.gameObject);
-
+                    // *** need to fix code to get ceiling destroy fixed. or not, not sure if I want to allow single tile destruction yet.
+                    if (CubePlacer.HighlighterTarget == "R")
+                    {
+                        Destroy(ShootScript.GridHit.collider.transform.gameObject);
+                    }
+                    else
+                    {
+                        Destroy(ShootScript.GridHit.collider.transform.parent.gameObject);
+                    }
                     Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY] = 0;
                 }
             }

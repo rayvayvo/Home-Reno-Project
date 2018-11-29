@@ -95,7 +95,7 @@ public class CubePlacer : MonoBehaviour {
         {
             //var HighlighterTarget = GridHit.collider.ToString().Substring(0, 1); //get collider hit variable
 
-            if (HighlighterTarget == "G")
+            if (HighlighterTarget == "G" || HighlighterTarget == "R")
             {
                 NearestX = GridHit.collider.transform.position.x;
                 NearestY = GridHit.collider.transform.position.z;
@@ -315,18 +315,31 @@ public class CubePlacer : MonoBehaviour {
                     }
                     else if(HighlighterTarget == "G")
                     {
-                    LintelHighlighter.SetActive(false);
-                    LintelPanelHighlighter.SetActive(false);
-                    LintelBottomHighlighter.SetActive(false);
-                    WallHighlighter.SetActive(false);
-                    HalfWallHighlighter.SetActive(false);
-                    HalfWallPanelHighlighter.SetActive(false);
-                    WallPanelHighlighter.SetActive(false);
-                    WallHighlighter.SetActive(false);
-                    TileHighlighter.SetActive(true);
-                    TileHighlighter.transform.position = new Vector3(NearestX, 0.001f, NearestY);
-                }
-                    else
+                        LintelHighlighter.SetActive(false);
+                        LintelPanelHighlighter.SetActive(false);
+                        LintelBottomHighlighter.SetActive(false);
+                        WallHighlighter.SetActive(false);
+                        HalfWallHighlighter.SetActive(false);
+                        HalfWallPanelHighlighter.SetActive(false);
+                        WallPanelHighlighter.SetActive(false);
+                        WallHighlighter.SetActive(false);
+                        TileHighlighter.SetActive(true);
+                        TileHighlighter.transform.position = new Vector3(NearestX, 0.001f, NearestY);
+                    }
+                    else if (HighlighterTarget == "R")
+                    {
+                        LintelHighlighter.SetActive(false);
+                        LintelPanelHighlighter.SetActive(false);
+                        LintelBottomHighlighter.SetActive(true);
+                        WallHighlighter.SetActive(false);
+                        HalfWallHighlighter.SetActive(false);
+                        HalfWallPanelHighlighter.SetActive(false);
+                        WallPanelHighlighter.SetActive(false);
+                        WallHighlighter.SetActive(false);
+                        TileHighlighter.SetActive(false);
+                        LintelBottomHighlighter.transform.position = new Vector3(NearestX,7.999f, NearestY);
+                    }
+                else
                     {
                         TileHighlighter.SetActive(false);
                         WallHighlighter.SetActive(false);
