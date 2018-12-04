@@ -3334,10 +3334,6 @@ MonoBehaviour:
   reticle: {fileID: 1657365052}
   CeilingTile: {fileID: 1596362363793708, guid: 6873719c4d63dce4bb13565a1e3778be,
     type: 2}
-  CeilingLowestX: 0
-  CeilingLowestY: 0
-  CeilingHighestX: 0
-  CeilingHighestY: 0
 --- !u!1 &1039408772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1978456401717214, guid: 12d4442e8e0508040b147422cd663d86,
@@ -6390,7 +6386,7 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.45
+    m_Bias: 0.652
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
