@@ -146,14 +146,10 @@ public class TabMenu : MonoBehaviour {
                 }
             }
         }
- 
+        DidCeiling = true;
+
         if (CeilingHighestX >= 0 && CeilingHighestY >= 0 && CeilingLowestX >= 0 && CeilingLowestY >= 0)
         {
-            GameObject[] Ceilingtiles = GameObject.FindGameObjectsWithTag("CeilingTile");
-
-            for (var i = 0; i < Ceilingtiles.Length; i++)
-                Destroy(Ceilingtiles[i]);
-
             for (int iX = CeilingLowestX; iX <= CeilingHighestX; iX++)
             {
                 for(int iY = CeilingLowestY; iY <= CeilingHighestY; iY++)
