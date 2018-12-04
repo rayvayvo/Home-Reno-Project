@@ -25,14 +25,10 @@ MonoBehaviour:
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
   controlID: 131
 =======
   controlID: 67
 >>>>>>> parent of 4e7a798... small updates
-=======
-  controlID: 14178
->>>>>>> parent of 32f3533... added roof resizing
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,14 +132,10 @@ MonoBehaviour:
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
 <<<<<<< HEAD
-<<<<<<< HEAD
   controlID: 132
 =======
   controlID: 68
 >>>>>>> parent of 4e7a798... small updates
-=======
-  controlID: 13965
->>>>>>> parent of 32f3533... added roof resizing
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -162,8 +154,8 @@ MonoBehaviour:
     y: 0
     width: 1119
     height: 434
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -366,14 +358,10 @@ MonoBehaviour:
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
 <<<<<<< HEAD
-<<<<<<< HEAD
   controlID: 67
 =======
   controlID: 113
 >>>>>>> parent of 4e7a798... small updates
-=======
-  controlID: 14179
->>>>>>> parent of 32f3533... added roof resizing
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -427,7 +415,6 @@ MonoBehaviour:
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
-<<<<<<< HEAD
     m_SelectedIDs: e83b0000
     m_LastClickedID: 15336
     m_ExpandedIDs: 76fbffff00000000b23a0000
@@ -436,11 +423,6 @@ MonoBehaviour:
     m_LastClickedID: 0
     m_ExpandedIDs: e6fbffff00000000
 >>>>>>> parent of 4e7a798... small updates
-=======
-    m_SelectedIDs: 0c6ff2ff
-    m_LastClickedID: 0
-    m_ExpandedIDs: e6fbffff00000000fa1900002a1a0000d01a0000241b00002e1c0000a61c0000
->>>>>>> parent of 32f3533... added roof resizing
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -482,8 +464,8 @@ MonoBehaviour:
     y: 631
     width: 329
     height: 316
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 234, y: 271}
+  m_MaxSize: {x: 10004, y: 10021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -537,15 +519,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
     m_SelectedIDs: 7a2f0000
     m_LastClickedID: 12154
     m_ExpandedIDs: 00000000222b0000423000007438000000ca9a3b
-=======
-    m_SelectedIDs: b80e0000
-    m_LastClickedID: 3768
-    m_ExpandedIDs: 00000000600a0000800f0000b617000000ca9a3b
->>>>>>> parent of 32f3533... added roof resizing
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -574,14 +550,10 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
-<<<<<<< HEAD
     m_ExpandedIDs: 00000000222b00004230000074380000
 =======
     m_ExpandedIDs: 00000000600a0000800f0000b8170000
 >>>>>>> parent of 4e7a798... small updates
-=======
-    m_ExpandedIDs: 00000000600a0000800f0000b617000000ca9a3b
->>>>>>> parent of 32f3533... added roof resizing
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -607,7 +579,6 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
-<<<<<<< HEAD
     m_SelectedInstanceIDs: e83b0000
     m_LastClickedInstanceID: 15336
     m_HadKeyboardFocusLastEvent: 0
@@ -616,11 +587,6 @@ MonoBehaviour:
     m_LastClickedInstanceID: 5564
     m_HadKeyboardFocusLastEvent: 1
 >>>>>>> parent of 4e7a798... small updates
-=======
-    m_SelectedInstanceIDs: 0c6ff2ff
-    m_LastClickedInstanceID: -889076
-    m_HadKeyboardFocusLastEvent: 0
->>>>>>> parent of 32f3533... added roof resizing
     m_ExpandedInstanceIDs: be3e0000347000006e7000002675000044e8d7ff96ced3ffcce9d2ff3406000064420000ceddf9ff
     m_RenameOverlay:
       m_UserAcceptedRename: 0

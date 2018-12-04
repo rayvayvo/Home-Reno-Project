@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23116095044247356}
   - component: {fileID: 65832703989850510}
   m_Layer: 0
-  m_Name: CeilingTile
-  m_TagString: Untagged
+  m_Name: RoomCeilingTile
+  m_TagString: CeilingTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

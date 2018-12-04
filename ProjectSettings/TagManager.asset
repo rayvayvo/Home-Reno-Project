@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GridObject
   - Floor
+  - CeilingTile
   layers:
   - Default
   - TransparentFX
