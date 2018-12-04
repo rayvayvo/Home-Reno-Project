@@ -16,11 +16,13 @@ public class TabMenu : MonoBehaviour {
     public Button RoofButton;
     public Text reticle;
     public GameObject CeilingTile;
+    public GameObject tilerscript;
     public static int CeilingLowestX;
     public static int CeilingLowestY;
     public static int CeilingHighestX;
     public static int CeilingHighestY;
     public static bool DidCeiling;
+
 
     // Use this for initialization
     void Start () {
@@ -28,10 +30,15 @@ public class TabMenu : MonoBehaviour {
         BuildButton.onClick.AddListener(BuildButtonClick);
         BuyButton.onClick.AddListener(BuyButtonClick);
         RoofButton.onClick.AddListener(RoofButtonClick);
+        var GD = tilerscript.GetComponent<Tiler>();
+   
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (TabMenuDisplay.activeSelf == false)
