@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TileData;
 
 public class WallBuilder : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class WallBuilder : MonoBehaviour {
 
     void Start ()
     {
+
     }
 	
 	// Update is called once per frame
@@ -24,8 +26,9 @@ public class WallBuilder : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && ClickDelay > 0.1 && TabMenuDisplay.activeSelf == false)
         {
+            var theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
-                if (Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY] == 0) //check for empty grid tile before allowing wall to be built
+            if (theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].contents == "Empty") //check for empty grid tile before allowing wall to be built
                 {
                     
                     if (UIGridLocator.UIEquipText == "Wall")
@@ -45,7 +48,7 @@ public class WallBuilder : MonoBehaviour {
                         Instantiate(ComboWall, new Vector3((int)CubePlacer.NearestX, 0, (int)CubePlacer.NearestY), Quaternion.identity);
                     }
 
-                    Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY] = 1;
+                theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].contents = UIGridLocator.UIEquipText;
                 }
             ClickDelay = 0;
         }

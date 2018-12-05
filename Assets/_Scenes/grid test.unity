@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 193346105}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: TileData
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,9 +507,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 193346104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e894faf3f13e81e4984fd1c2814ade6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e94a5a0bc4ccb64f8bf91d8c589be11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contents: 
+  faceS: 000000000000000000000000
+  faceE: 
+  faceN: 
+  faceW: 
+  faceT: 
+  faceB: 
+  attachedObject: 
+  objectTransform: 
   GridTile: {fileID: 1801680524507664, guid: a17e7f06a87cebb428c0bccd55d5a2bd, type: 2}
   CanvasDb: {fileID: 1948382048}
 --- !u!4 &193346106
@@ -1581,9 +1590,34 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 19d0d71b88eded646a823738d9afb27f,
         type: 3}
+    - target: {fileID: 114147965589410394, guid: 12d4442e8e0508040b147422cd663d86,
+        type: 2}
+      propertyPath: WallBuilder
+      value: 
+      objectReference: {fileID: 565260060}
+    - target: {fileID: 114147965589410394, guid: 12d4442e8e0508040b147422cd663d86,
+        type: 2}
+      propertyPath: HeldObject
+      value: 
+      objectReference: {fileID: 492471187}
+    - target: {fileID: 114147965589410394, guid: 12d4442e8e0508040b147422cd663d86,
+        type: 2}
+      propertyPath: WallDestroyer
+      value: 
+      objectReference: {fileID: 2001596740}
+    - target: {fileID: 114147965589410394, guid: 12d4442e8e0508040b147422cd663d86,
+        type: 2}
+      propertyPath: Painter
+      value: 
+      objectReference: {fileID: 1039408772}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d4442e8e0508040b147422cd663d86, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &492471187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1449749004015858, guid: 12d4442e8e0508040b147422cd663d86,
+    type: 2}
+  m_PrefabInternal: {fileID: 492471186}
 --- !u!1 &512240288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1831,7 @@ MonoBehaviour:
   Lintel: {fileID: 1950822836160696, guid: caab4dd941532bd46805b5a07eb68fa2, type: 2}
   ComboWall: {fileID: 1482855829458272, guid: 1d023f3440410b049806805d8a715557, type: 2}
   TabMenuDisplay: {fileID: 216598442}
+  TilerScript: {fileID: 193346104}
 --- !u!1001 &569508418
 Prefab:
   m_ObjectHideFlags: 0
@@ -3327,6 +3362,7 @@ MonoBehaviour:
   PaintMenu: {fileID: 682393665}
   BuildMenu: {fileID: 1021376332}
   BuyMenu: {fileID: 2039904685}
+  TilerScript: {fileID: 193346104}
   PaintButton: {fileID: 1887886228}
   BuildButton: {fileID: 1995812461}
   BuyButton: {fileID: 1165068452}
@@ -3334,6 +3370,7 @@ MonoBehaviour:
   reticle: {fileID: 1657365052}
   CeilingTile: {fileID: 1596362363793708, guid: 6873719c4d63dce4bb13565a1e3778be,
     type: 2}
+  GridTile: {fileID: 1801680524507664, guid: a17e7f06a87cebb428c0bccd55d5a2bd, type: 2}
 --- !u!1 &1039408772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1978456401717214, guid: 12d4442e8e0508040b147422cd663d86,
@@ -6719,6 +6756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCharacter: {fileID: 787225437}
+  TilerScript: {fileID: 193346104}
 --- !u!1 &2019110043
 GameObject:
   m_ObjectHideFlags: 0

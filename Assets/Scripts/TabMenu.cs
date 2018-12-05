@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TileData;
 
 public class TabMenu : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class TabMenu : MonoBehaviour {
     public GameObject PaintMenu;
     public GameObject BuildMenu;
     public GameObject BuyMenu;
+    public GameObject TilerScript;
     public Button PaintButton;
     public Button BuildButton;
     public Button BuyButton;
@@ -21,13 +23,31 @@ public class TabMenu : MonoBehaviour {
     public static int CeilingHighestX;
     public static int CeilingHighestY;
     public static bool DidCeiling;
+    public GameObject GridTile;
+    public Tiler TileData;
+
 
     // Use this for initialization
     void Start () {
+
+       TileData = new Tiler();
+        Tiler.CreateGrid();
+        
+        for (int iX = 0; iX < 50; iX++)
+        {
+            for (int iY = 0; iY < 50; iY++)
+            {
+                Instantiate(GridTile, new Vector3(iX, 0, iY), Quaternion.identity);
+            }
+        }
+
+
+
         PaintButton.onClick.AddListener(PaintButtonClick);
         BuildButton.onClick.AddListener(BuildButtonClick);
         BuyButton.onClick.AddListener(BuyButtonClick);
         RoofButton.onClick.AddListener(RoofButtonClick);
+
     }
 	
 	// Update is called once per frame
@@ -95,11 +115,13 @@ public class TabMenu : MonoBehaviour {
 
     void RoofButtonClick()
     {
+        var theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>(); 
+
         for (int iX = 0; iX < 50; iX++)
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (Tiler.GridData[iX,iY] == 1)
+                if (theData.TileData.gridData[iX,iY].contents != "empty")
                 {
                     CeilingHighestX = iX;
                     break;
@@ -110,7 +132,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (Tiler.GridData[iX, iY] == 1)
+                if (theData.TileData.gridData[iX, iY].contents != "empty")
                 {
                     CeilingLowestX = iX;
                     break;
@@ -121,7 +143,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (Tiler.GridData[iX, iY] == 1)
+                if (theData.TileData.gridData[iX, iY].contents != "empty")
                 {
                     CeilingHighestY = iY;
                     break;
@@ -132,7 +154,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (Tiler.GridData[iX, iY] == 1)
+                if (theData.TileData.gridData[iX, iY].contents != "empty")
                 {
                     CeilingLowestY = iY;
                     break;

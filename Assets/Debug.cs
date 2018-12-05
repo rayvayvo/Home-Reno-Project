@@ -25,7 +25,7 @@ public class Debug : MonoBehaviour {
 
         if (CubePlacer.DidShootHit == true && CubePlacer.HighlighterTarget == "W" && TabMenu.DidCeiling == false)
         {
-            text.text = "Debug: (" + CubePlacer.NearestX + " : " + CubePlacer.NearestY + ")" + "<" + CubePlacer.NearestParentX + " : " + CubePlacer.NearestParentY + ">" + " |" + Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].ToString() + ":" + Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].ToString() + "| " + "{" + CubePlacer.HighlighterSurface + "}";
+            //text.text = "Debug: (" + CubePlacer.NearestX + " : " + CubePlacer.NearestY + ")" + "<" + CubePlacer.NearestParentX + " : " + CubePlacer.NearestParentY + ">" + " |" + Tiler.GridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].ToString() + ":" + Tiler.GridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].ToString() + "| " + "{" + CubePlacer.HighlighterSurface + "}";
         }
         if (TabMenu.DidCeiling == true)
         {
