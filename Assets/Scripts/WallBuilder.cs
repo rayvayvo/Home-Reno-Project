@@ -26,7 +26,7 @@ public class WallBuilder : MonoBehaviour {
 
         if (Input.GetButton("Fire1") && ClickDelay > 0.1 && TabMenuDisplay.activeSelf == false)
         {
-            var theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
+            TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
             if (theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].contents == "Empty") //check for empty grid tile before allowing wall to be built
                 {

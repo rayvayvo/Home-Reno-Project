@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Debug : MonoBehaviour {
     
     public static Text text;
-    public GameObject GridObject;
 
     void Awake()
     {

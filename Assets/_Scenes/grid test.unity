@@ -274,7 +274,6 @@ RectTransform:
   - {fileID: 1197938320}
   - {fileID: 576103992}
   - {fileID: 1101167059}
-  - {fileID: 426117142}
   - {fileID: 1156197910}
   - {fileID: 1948382049}
   m_Father: {fileID: 0}
@@ -491,36 +490,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193346106}
-  - component: {fileID: 193346105}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: TileData
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &193346105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 193346104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e94a5a0bc4ccb64f8bf91d8c589be11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contents: 
-  faceS: 000000000000000000000000
-  faceE: 
-  faceN: 
-  faceW: 
-  faceT: 
-  faceB: 
-  attachedObject: 
-  objectTransform: 
-  GridTile: {fileID: 1801680524507664, guid: a17e7f06a87cebb428c0bccd55d5a2bd, type: 2}
-  CanvasDb: {fileID: 1948382048}
 --- !u!4 &193346106
 Transform:
   m_ObjectHideFlags: 0
@@ -1372,16 +1348,16 @@ RectTransform:
   m_GameObject: {fileID: 426117141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 569733941}
   - {fileID: 2031681566}
-  m_Father: {fileID: 84657364}
-  m_RootOrder: 7
+  m_Father: {fileID: 1101167059}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25, y: 25}
+  m_AnchoredPosition: {x: 480, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &426117143
@@ -1831,7 +1807,6 @@ MonoBehaviour:
   Lintel: {fileID: 1950822836160696, guid: caab4dd941532bd46805b5a07eb68fa2, type: 2}
   ComboWall: {fileID: 1482855829458272, guid: 1d023f3440410b049806805d8a715557, type: 2}
   TabMenuDisplay: {fileID: 216598442}
-  TilerScript: {fileID: 193346104}
 --- !u!1001 &569508418
 Prefab:
   m_ObjectHideFlags: 0
@@ -3324,7 +3299,7 @@ GameObject:
   - component: {fileID: 1036117956}
   m_Layer: 0
   m_Name: TabMenu
-  m_TagString: Untagged
+  m_TagString: TileData
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3362,7 +3337,6 @@ MonoBehaviour:
   PaintMenu: {fileID: 682393665}
   BuildMenu: {fileID: 1021376332}
   BuyMenu: {fileID: 2039904685}
-  TilerScript: {fileID: 193346104}
   PaintButton: {fileID: 1887886228}
   BuildButton: {fileID: 1995812461}
   BuyButton: {fileID: 1165068452}
@@ -3562,6 +3536,7 @@ RectTransform:
   m_Children:
   - {fileID: 1551805608}
   - {fileID: 1748302465}
+  - {fileID: 426117142}
   m_Father: {fileID: 84657364}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3845,7 +3820,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 84657364}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -6483,7 +6458,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 84657364}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6501,7 +6476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116c71e451defed4d9d87ff64bcced72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridObject: {fileID: 193346104}
 --- !u!114 &1948382051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6756,7 +6730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirstPersonCharacter: {fileID: 787225437}
-  TilerScript: {fileID: 193346104}
 --- !u!1 &2019110043
 GameObject:
   m_ObjectHideFlags: 0

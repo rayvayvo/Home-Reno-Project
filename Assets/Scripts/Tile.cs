@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace TileData
-{
+{ 
     public struct Tile
     {
         public string contents;
@@ -18,13 +18,14 @@ namespace TileData
         public GameObject GridTile;
         public GameObject CanvasDb;
     };
+
     public class Tiler
     {
         public Tile[,] gridData;
 
-        public static void CreateGrid()
+        public void CreateGrid()
         {
-            var gridData = new Tile[50, 50];
+           gridData = new Tile[50, 50];
 
             for (int iX = 0; iX < 50; iX++)
             {
@@ -56,3 +57,4 @@ namespace TileData
         }
     }
 }
+

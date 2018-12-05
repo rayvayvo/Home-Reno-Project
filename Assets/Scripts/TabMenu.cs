@@ -11,7 +11,6 @@ public class TabMenu : MonoBehaviour {
     public GameObject PaintMenu;
     public GameObject BuildMenu;
     public GameObject BuyMenu;
-    public GameObject TilerScript;
     public Button PaintButton;
     public Button BuildButton;
     public Button BuyButton;
@@ -30,8 +29,8 @@ public class TabMenu : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-       TileData = new Tiler();
-        Tiler.CreateGrid();
+        TileData = new Tiler();
+        TileData.CreateGrid();
         
         for (int iX = 0; iX < 50; iX++)
         {
@@ -115,13 +114,19 @@ public class TabMenu : MonoBehaviour {
 
     void RoofButtonClick()
     {
-        var theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>(); 
+        TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
+        CeilingHighestX = -1;
+        CeilingLowestX = -1;
+        CeilingHighestY = -1;
+        CeilingLowestY = -1;
+
+
 
         for (int iX = 0; iX < 50; iX++)
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (theData.TileData.gridData[iX,iY].contents != "empty")
+                if (TileData.gridData[iX,iY].contents != "Empty")
                 {
                     CeilingHighestX = iX;
                     break;
@@ -132,7 +137,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (theData.TileData.gridData[iX, iY].contents != "empty")
+                if (TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingLowestX = iX;
                     break;
@@ -143,7 +148,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (theData.TileData.gridData[iX, iY].contents != "empty")
+                if (TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingHighestY = iY;
                     break;
@@ -154,7 +159,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (theData.TileData.gridData[iX, iY].contents != "empty")
+                if (TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingLowestY = iY;
                     break;
