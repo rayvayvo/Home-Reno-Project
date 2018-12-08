@@ -126,7 +126,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (TileData.gridData[iX,iY].contents != "Empty")
+                if (theData.TileData.gridData[iX,iY].contents != "Empty")
                 {
                     CeilingHighestX = iX;
                     break;
@@ -137,7 +137,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iY = 0; iY < 50; iY++)
             {
-                if (TileData.gridData[iX, iY].contents != "Empty")
+                if (theData.TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingLowestX = iX;
                     break;
@@ -148,7 +148,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (TileData.gridData[iX, iY].contents != "Empty")
+                if (theData.TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingHighestY = iY;
                     break;
@@ -159,7 +159,7 @@ public class TabMenu : MonoBehaviour {
         {
             for (int iX = 0; iX < 50; iX++)
             {
-                if (TileData.gridData[iX, iY].contents != "Empty")
+                if (theData.TileData.gridData[iX, iY].contents != "Empty")
                 {
                     CeilingLowestY = iY;
                     break;

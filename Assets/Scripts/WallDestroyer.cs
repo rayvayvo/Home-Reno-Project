@@ -38,6 +38,18 @@ public class WallDestroyer : MonoBehaviour {
                         Destroy(ShootScript.GridHit.collider.transform.parent.gameObject);
                     }
                     theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].contents = "Empty";
+                    theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].attachedObject = "Empty";
+
+                    for (int x = 0; x < 3; x++)
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceN[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceS[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceE[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceW[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceT[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceB[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].objectTransform[x] = 0;
+                    }
                 }
             }
             ClickDelay = 0;

@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Debug.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -72,6 +71,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\BuildMenu.cs" />
     <Compile Include="Assets\Scripts\CubePlacer.cs" />
+    <Compile Include="Assets\Scripts\Debug.cs" />
     <Compile Include="Assets\Scripts\PaintMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerEquipmentChange.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementController.cs" />

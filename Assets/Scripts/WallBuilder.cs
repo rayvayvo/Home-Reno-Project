@@ -49,7 +49,25 @@ public class WallBuilder : MonoBehaviour {
                     }
 
                 theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].contents = UIGridLocator.UIEquipText;
+                for (int x = 0; x < 3; x++)
+                {
+                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceN[x] = 255;
+                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceS[x] = 255;
+                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceE[x] = 255;
+                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceW[x] = 255;
+
+                    if(UIGridLocator.UIEquipText == "Half Wall")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceT[x] = 255;
+                    }
+                    else if (UIGridLocator.UIEquipText == "Lintel")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceB[x] = 255;
+                    }
+
                 }
+
+            }
             ClickDelay = 0;
         }
     } 
