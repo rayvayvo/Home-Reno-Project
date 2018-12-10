@@ -11,10 +11,17 @@ public class TabMenu : MonoBehaviour {
     public GameObject PaintMenu;
     public GameObject BuildMenu;
     public GameObject BuyMenu;
+
+    public GameObject DWall;
+    public GameObject DHalfWall;
+    public GameObject DComboWall;
+    public GameObject DLintelWall;
+    
     public Button PaintButton;
     public Button BuildButton;
     public Button BuyButton;
     public Button RoofButton;
+    public Button DuplicateButton;
     public Text reticle;
     public GameObject CeilingTile;
     public static int CeilingLowestX;
@@ -46,6 +53,7 @@ public class TabMenu : MonoBehaviour {
         BuildButton.onClick.AddListener(BuildButtonClick);
         BuyButton.onClick.AddListener(BuyButtonClick);
         RoofButton.onClick.AddListener(RoofButtonClick);
+        DuplicateButton.onClick.AddListener(DuplicateButtonClick);
 
     }
 	
@@ -189,4 +197,51 @@ public class TabMenu : MonoBehaviour {
         }
     }
 
+    void DuplicateButtonClick()
+    {
+        TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
+
+        for (int iX = 0; iX < 50; iX++)
+        {
+            for (int iY = 0; iY < 50; iY++)
+            {
+                Instantiate(GridTile, new Vector3(iX + 51, 0, iY), Quaternion.identity);
+                var SquareInfo = theData.TileData.gridData[iX, iY];
+
+                if (SquareInfo.contents == "Wall")
+                {
+                    var NewObject = Instantiate(DWall, new Vector3(iX + 51, 4, iY), Quaternion.identity);
+                    NewObject.transform.Find("WallSideN").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceN[0], (byte)SquareInfo.faceN[1], (byte)SquareInfo.faceN[2], 255);
+                    NewObject.transform.Find("WallSideS").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceS[0], (byte)SquareInfo.faceS[1], (byte)SquareInfo.faceS[2], 255);
+                    NewObject.transform.Find("WallSideE").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceE[0], (byte)SquareInfo.faceE[1], (byte)SquareInfo.faceE[2], 255);
+                    NewObject.transform.Find("WallSideW").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceW[0], (byte)SquareInfo.faceW[1], (byte)SquareInfo.faceW[2], 255);
+                }
+                else if (SquareInfo.contents == "Combo Wall")
+                {
+                    Instantiate(DComboWall, new Vector3(iX + 51, 0, iY), Quaternion.identity);
+                }
+                else if (SquareInfo.contents == "Half Wall")
+                {
+                    Instantiate(DHalfWall, new Vector3(iX + 51, 4, iY), Quaternion.identity);
+                }
+                else if (SquareInfo.contents == "Lintel")
+                {
+                    Instantiate(DLintelWall, new Vector3(iX + 51, 8, iY), Quaternion.identity);
+                }
+
+            }
+        }
+
+        if (DidCeiling == true)
+        {
+            for (int cX = CeilingLowestX + 49; cX <= CeilingHighestX + 51; cX++)
+            {
+                for (int cY = CeilingLowestY - 1; cY <= CeilingHighestY + 1; cY++)
+                {
+                    Instantiate(CeilingTile, new Vector3(cX, 8.5f, cY), Quaternion.identity);
+                }
+            }
+        }
+
+    }
 }
