@@ -47,7 +47,12 @@ public class WallDestroyer : MonoBehaviour {
                         theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceE[x] = 0;
                         theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceW[x] = 0;
                         theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceT[x] = 0;
-                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceB[x] = 0;
+
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLN[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLS[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLE[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLW[x] = 0;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLB[x] = 0;
                         theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].objectTransform[x] = 0;
                     }
                 }

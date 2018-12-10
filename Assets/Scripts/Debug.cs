@@ -16,7 +16,12 @@ public class Debug : MonoBehaviour {
     public GameObject debugWallE;
     public GameObject debugWallW;
     public GameObject debugWallT;
-    public GameObject debugWallB;
+
+    public GameObject debugWallLN;
+    public GameObject debugWallLS;
+    public GameObject debugWallLE;
+    public GameObject debugWallLW;
+    public GameObject debugWallLB;
 
     Text debugcoordstext;
     Text debugcontentstext;
@@ -28,7 +33,12 @@ public class Debug : MonoBehaviour {
     Image debugWallEimage;
     Image debugWallWimage;
     Image debugWallTimage;
-    Image debugWallBimage;
+
+    Image debugWallLNimage;
+    Image debugWallLSimage;
+    Image debugWallLEimage;
+    Image debugWallLWimage;
+    Image debugWallLBimage;
 
     void Awake()
     {
@@ -42,16 +52,23 @@ public class Debug : MonoBehaviour {
         debugWallEimage = debugWallE.GetComponent<Image>();
         debugWallWimage = debugWallW.GetComponent<Image>();
         debugWallTimage = debugWallT.GetComponent<Image>();
-        debugWallBimage = debugWallB.GetComponent<Image>();
+
+        debugWallLNimage = debugWallLN.GetComponent<Image>();
+        debugWallLSimage = debugWallLS.GetComponent<Image>();
+        debugWallLEimage = debugWallLE.GetComponent<Image>();
+        debugWallLWimage = debugWallLW.GetComponent<Image>();
+        debugWallLBimage = debugWallLB.GetComponent<Image>();
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         if (CubePlacer.DidShootHit == true)
         {
@@ -64,7 +81,7 @@ public class Debug : MonoBehaviour {
             debugattachedxyztext.text = "AttachedXY: " + squareInfo.objectTransform;
 
             debugWallNimage.color = new Color32(
-                (byte)squareInfo.faceN[0], (byte)squareInfo.faceN[1], (byte)squareInfo.faceN[2], 255); 
+                (byte)squareInfo.faceN[0], (byte)squareInfo.faceN[1], (byte)squareInfo.faceN[2], 255);
 
             debugWallSimage.color = new Color32(
                 (byte)squareInfo.faceS[0], (byte)squareInfo.faceS[1], (byte)squareInfo.faceS[2], 255);
@@ -78,11 +95,34 @@ public class Debug : MonoBehaviour {
             debugWallTimage.color = new Color32(
                 (byte)squareInfo.faceT[0], (byte)squareInfo.faceT[1], (byte)squareInfo.faceT[2], 255);
 
-            debugWallBimage.color = new Color32(
-                (byte)squareInfo.faceB[0], (byte)squareInfo.faceB[1], (byte)squareInfo.faceB[2], 255);
+            debugWallLNimage.color = new Color32(
+                (byte)squareInfo.faceLN[0], (byte)squareInfo.faceLN[1], (byte)squareInfo.faceLN[2], 255);
+
+            debugWallLSimage.color = new Color32(
+                (byte)squareInfo.faceLS[0], (byte)squareInfo.faceLS[1], (byte)squareInfo.faceLS[2], 255);
+
+            debugWallLEimage.color = new Color32(
+                (byte)squareInfo.faceLE[0], (byte)squareInfo.faceLE[1], (byte)squareInfo.faceLE[2], 255);
+
+            debugWallLWimage.color = new Color32(
+                (byte)squareInfo.faceLW[0], (byte)squareInfo.faceLW[1], (byte)squareInfo.faceLW[2], 255);
+
+            debugWallLBimage.color = new Color32(
+                (byte)squareInfo.faceLB[0], (byte)squareInfo.faceLB[1], (byte)squareInfo.faceLB[2], 255);
 
         }
-
-
+        else
+        {
+            debugWallNimage.color = Color.black;
+            debugWallSimage.color = Color.black;
+            debugWallEimage.color = Color.black;
+            debugWallWimage.color = Color.black;
+            debugWallTimage.color = Color.black;
+            debugWallLNimage.color = Color.black;
+            debugWallLSimage.color = Color.black;
+            debugWallLEimage.color = Color.black;
+            debugWallLWimage.color = Color.black;
+            debugWallLBimage.color = Color.black;
+        }
     }
 }

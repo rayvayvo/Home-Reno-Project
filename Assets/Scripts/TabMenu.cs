@@ -174,9 +174,9 @@ public class TabMenu : MonoBehaviour {
             for (var i = 0; i < Ceilingtiles.Length; i++)
                 Destroy(Ceilingtiles[i]);
 
-            for (int iX = CeilingLowestX; iX <= CeilingHighestX; iX++)
+            for (int iX = CeilingLowestX - 1; iX <= CeilingHighestX + 1; iX++)
             {
-                for(int iY = CeilingLowestY; iY <= CeilingHighestY; iY++)
+                for(int iY = CeilingLowestY - 1; iY <= CeilingHighestY + 1; iY++)
                 {
                     Instantiate(CeilingTile, new Vector3(iX, 8.5f, iY), Quaternion.identity);
                     DidCeiling = true;

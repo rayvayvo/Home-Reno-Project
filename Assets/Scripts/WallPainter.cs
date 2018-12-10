@@ -28,7 +28,7 @@ public class WallPainter : MonoBehaviour {
             {
                 TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
-                if (ShootScript.GridHit.collider.ToString().Substring(0, 8) == "WallSide" || ShootScript.GridHit.collider.ToString().Substring(0, 8) == "HalfWall" || ShootScript.GridHit.collider.ToString().Substring(0, 6) == "Lintel" || ShootScript.GridHit.collider.ToString().Substring(0, 5) == "Combo" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Grid" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Room") 
+                if (ShootScript.GridHit.collider.ToString().Substring(0, 8) == "WallSide" || ShootScript.GridHit.collider.ToString().Substring(0, 8) == "HalfWall" || ShootScript.GridHit.collider.ToString().Substring(0, 6) == "ComboH"  || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Grid" || ShootScript.GridHit.collider.ToString().Substring(0, 4) == "Room") 
                 {
                     if (CubePlacer.HighlighterSurface == "N")
                     {
@@ -60,14 +60,41 @@ public class WallPainter : MonoBehaviour {
                         theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceT[1] = PaintMenu.LastGreen;
                         theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceT[2] = PaintMenu.LastBlue;
                     }
+                    ShootScript.GridHit.transform.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(PaintMenu.LastRed, PaintMenu.LastGreen, PaintMenu.LastBlue, 255);
+                }
+                else if (ShootScript.GridHit.collider.ToString().Substring(0, 6) == "Lintel" || ShootScript.GridHit.collider.ToString().Substring(0, 6) == "ComboL")
+                {
+                    if (CubePlacer.HighlighterSurface == "N")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLN[0] = PaintMenu.LastRed;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLN[1] = PaintMenu.LastGreen;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLN[2] = PaintMenu.LastBlue;
+                    }
+                    if (CubePlacer.HighlighterSurface == "S")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLS[0] = PaintMenu.LastRed;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLS[1] = PaintMenu.LastGreen;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLS[2] = PaintMenu.LastBlue;
+                    }
+                    if (CubePlacer.HighlighterSurface == "E")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLE[0] = PaintMenu.LastRed;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLE[1] = PaintMenu.LastGreen;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLE[2] = PaintMenu.LastBlue;
+                    }
+                    if (CubePlacer.HighlighterSurface == "W")
+                    {
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLW[0] = PaintMenu.LastRed;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLW[1] = PaintMenu.LastGreen;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLW[2] = PaintMenu.LastBlue;
+                    }
                     if (CubePlacer.HighlighterSurface == "B")
                     {
-                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceB[0] = PaintMenu.LastRed;
-                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceB[1] = PaintMenu.LastGreen;
-                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceB[2] = PaintMenu.LastBlue;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLB[0] = PaintMenu.LastRed;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLB[1] = PaintMenu.LastGreen;
+                        theData.TileData.gridData[(int)CubePlacer.NearestParentX, (int)CubePlacer.NearestParentY].faceLB[2] = PaintMenu.LastBlue;
                     }
-
-                    ShootScript.GridHit.transform.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(PaintMenu.LastRed,PaintMenu.LastGreen,PaintMenu.LastBlue, 255);
+                    ShootScript.GridHit.transform.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(PaintMenu.LastRed, PaintMenu.LastGreen, PaintMenu.LastBlue, 255);
                 }
             }
             ClickDelay = 0;

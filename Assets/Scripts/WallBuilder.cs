@@ -51,20 +51,22 @@ public class WallBuilder : MonoBehaviour {
                 theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].contents = UIGridLocator.UIEquipText;
                 for (int x = 0; x < 3; x++)
                 {
-                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceN[x] = 255;
-                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceS[x] = 255;
-                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceE[x] = 255;
-                    theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceW[x] = 255;
-
-                    if(UIGridLocator.UIEquipText == "Half Wall")
+                    if(UIGridLocator.UIEquipText == "Half Wall" || UIGridLocator.UIEquipText == "Combo Wall" || UIGridLocator.UIEquipText == "Wall")
                     {
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceN[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceS[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceE[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceW[x] = 255;
                         theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceT[x] = 255;
                     }
-                    else if (UIGridLocator.UIEquipText == "Lintel")
+                    if (UIGridLocator.UIEquipText == "Lintel" || UIGridLocator.UIEquipText == "Combo Wall")
                     {
-                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceB[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLN[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLS[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLE[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLW[x] = 255;
+                        theData.TileData.gridData[(int)CubePlacer.NearestX, (int)CubePlacer.NearestY].faceLB[x] = 255;
                     }
-
                 }
 
             }

@@ -12,7 +12,12 @@ namespace TileData
         public int[] faceN;
         public int[] faceW;
         public int[] faceT;
-        public int[] faceB;
+
+        public int[] faceLS;
+        public int[] faceLE;
+        public int[] faceLN;
+        public int[] faceLW;
+        public int[] faceLB;
         public string attachedObject;
         public int[] objectTransform;
         public GameObject GridTile;
@@ -36,7 +41,12 @@ namespace TileData
                     gridData[iX, iY].faceE = new int[3];
                     gridData[iX, iY].faceW = new int[3];
                     gridData[iX, iY].faceT = new int[3];
-                    gridData[iX, iY].faceB = new int[3];
+
+                    gridData[iX, iY].faceLS = new int[3];
+                    gridData[iX, iY].faceLN = new int[3];
+                    gridData[iX, iY].faceLE = new int[3];
+                    gridData[iX, iY].faceLW = new int[3];
+                    gridData[iX, iY].faceLB = new int[3];
                     gridData[iX, iY].objectTransform = new int[3];
                     gridData[iX, iY].contents = "Empty";
                     gridData[iX, iY].attachedObject = "Empty";
@@ -48,7 +58,12 @@ namespace TileData
                         gridData[iX, iY].faceE[iZ] = 0;
                         gridData[iX, iY].faceW[iZ] = 0;
                         gridData[iX, iY].faceT[iZ] = 0;
-                        gridData[iX, iY].faceB[iZ] = 0;
+
+                        gridData[iX, iY].faceLS[iZ] = 0;
+                        gridData[iX, iY].faceLN[iZ] = 0;
+                        gridData[iX, iY].faceLE[iZ] = 0;
+                        gridData[iX, iY].faceLW[iZ] = 0;
+                        gridData[iX, iY].faceLB[iZ] = 0;
                         gridData[iX, iY].objectTransform[iZ] = 0;
                     }
                 }
