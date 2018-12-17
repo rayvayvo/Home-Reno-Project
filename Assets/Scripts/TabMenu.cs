@@ -218,15 +218,36 @@ public class TabMenu : MonoBehaviour {
                 }
                 else if (SquareInfo.contents == "Combo Wall")
                 {
-                    Instantiate(DComboWall, new Vector3(iX + 51, 0, iY), Quaternion.identity);
+                    var NewObject = Instantiate(DComboWall, new Vector3(iX + 51, 0, iY), Quaternion.identity);
+                    NewObject.transform.Find("ComboHfWallSideN").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceN[0], (byte)SquareInfo.faceN[1], (byte)SquareInfo.faceN[2], 255);
+                    NewObject.transform.Find("ComboHfWallSideS").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceS[0], (byte)SquareInfo.faceS[1], (byte)SquareInfo.faceS[2], 255);
+                    NewObject.transform.Find("ComboHfWallSideE").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceE[0], (byte)SquareInfo.faceE[1], (byte)SquareInfo.faceE[2], 255);
+                    NewObject.transform.Find("ComboHfWallSideW").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceW[0], (byte)SquareInfo.faceW[1], (byte)SquareInfo.faceW[2], 255);
+                    NewObject.transform.Find("ComboHfWallSideT").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceT[0], (byte)SquareInfo.faceT[1], (byte)SquareInfo.faceT[2], 255);
+
+                    NewObject.transform.Find("ComboLintelSideN").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLN[0], (byte)SquareInfo.faceLN[1], (byte)SquareInfo.faceLN[2], 255);
+                    NewObject.transform.Find("ComboLintelSideS").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLS[0], (byte)SquareInfo.faceLS[1], (byte)SquareInfo.faceLS[2], 255);
+                    NewObject.transform.Find("ComboLintelSideE").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLE[0], (byte)SquareInfo.faceLE[1], (byte)SquareInfo.faceLE[2], 255);
+                    NewObject.transform.Find("ComboLintelSideW").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLW[0], (byte)SquareInfo.faceLW[1], (byte)SquareInfo.faceLW[2], 255);
+                    NewObject.transform.Find("ComboLintelSideB").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLB[0], (byte)SquareInfo.faceLB[1], (byte)SquareInfo.faceLB[2], 255);
                 }
                 else if (SquareInfo.contents == "Half Wall")
                 {
-                    Instantiate(DHalfWall, new Vector3(iX + 51, 4, iY), Quaternion.identity);
+                    var NewObject = Instantiate(DHalfWall, new Vector3(iX + 51, 4, iY), Quaternion.identity);
+                    NewObject.transform.Find("HalfWallSideN").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceN[0], (byte)SquareInfo.faceN[1], (byte)SquareInfo.faceN[2], 255);
+                    NewObject.transform.Find("HalfWallSideS").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceS[0], (byte)SquareInfo.faceS[1], (byte)SquareInfo.faceS[2], 255);
+                    NewObject.transform.Find("HalfWallSideE").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceE[0], (byte)SquareInfo.faceE[1], (byte)SquareInfo.faceE[2], 255);
+                    NewObject.transform.Find("HalfWallSideW").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceW[0], (byte)SquareInfo.faceW[1], (byte)SquareInfo.faceW[2], 255);
+                    NewObject.transform.Find("HalfWallSideT").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceT[0], (byte)SquareInfo.faceT[1], (byte)SquareInfo.faceT[2], 255);
                 }
                 else if (SquareInfo.contents == "Lintel")
                 {
-                    Instantiate(DLintelWall, new Vector3(iX + 51, 8, iY), Quaternion.identity);
+                    var NewObject = Instantiate(DLintelWall, new Vector3(iX + 51, 8, iY), Quaternion.identity);
+                    NewObject.transform.Find("LintelSideN").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLN[0], (byte)SquareInfo.faceLN[1], (byte)SquareInfo.faceLN[2], 255);
+                    NewObject.transform.Find("LintelSideS").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLS[0], (byte)SquareInfo.faceLS[1], (byte)SquareInfo.faceLS[2], 255);
+                    NewObject.transform.Find("LintelSideE").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLE[0], (byte)SquareInfo.faceLE[1], (byte)SquareInfo.faceLE[2], 255);
+                    NewObject.transform.Find("LintelSideW").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLW[0], (byte)SquareInfo.faceLW[1], (byte)SquareInfo.faceLW[2], 255);
+                    NewObject.transform.Find("LintelSideB").GetComponent<MeshRenderer>().material.color = new Color32((byte)SquareInfo.faceLB[0], (byte)SquareInfo.faceLB[1], (byte)SquareInfo.faceLB[2], 255);
                 }
 
             }
