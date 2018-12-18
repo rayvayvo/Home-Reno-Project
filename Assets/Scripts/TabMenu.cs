@@ -32,6 +32,12 @@ public class TabMenu : MonoBehaviour {
     public GameObject GridTile;
     public Tiler TileData;
 
+    public GameObject PauseMenuDisplay;
+    public Button SaveButton;
+    public Button LoadButton;
+    public Button OptionsButton;
+    public Button QuitToTitleButton;
+    public Button QuitToDesktopButton;
 
     // Use this for initialization
     void Start () {
@@ -55,47 +61,80 @@ public class TabMenu : MonoBehaviour {
         RoofButton.onClick.AddListener(RoofButtonClick);
         DuplicateButton.onClick.AddListener(DuplicateButtonClick);
 
+        SaveButton.onClick.AddListener(SaveButtonClick);
+        LoadButton.onClick.AddListener(LoadButtonClick);
+        OptionsButton.onClick.AddListener(OptionsButtonClick);
+        QuitToTitleButton.onClick.AddListener(QuitToTitleButtonClick);
+        QuitToDesktopButton.onClick.AddListener(QuitToDesktopButtonClick);
+
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+
+        if (TabMenuDisplay.activeSelf == true || PauseMenuDisplay.activeSelf == true)
+        {
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_cursorIsLocked = false;
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = 0;
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = 0;
+            reticle.text = "";
+        }
+        else if(TabMenuDisplay.activeSelf == false && PauseMenuDisplay.activeSelf == false)
+        {
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_cursorIsLocked = true;
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_WalkSpeed = 8;
+            FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_RunSpeed = 10;
+            reticle.text = "+";
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (TabMenuDisplay.activeSelf == false)
-            { 
-                TabMenuDisplay.SetActive(true);
-                FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_cursorIsLocked = false;
-                reticle.text = "";
+            if (PauseMenuDisplay.activeSelf == false)
+            {
+                if (TabMenuDisplay.activeSelf == false)
+                {
+                    TabMenuDisplay.SetActive(true);
 
-                if (PlayerEquipmentChange.CurrentEquip == "Painter")
+                    if (PlayerEquipmentChange.CurrentEquip == "Painter")
+                    {
+                        PaintMenu.SetActive(true);
+                        BuildMenu.SetActive(false);
+                        BuyMenu.SetActive(false);
+                    }
+                    if (PlayerEquipmentChange.CurrentEquip == "WallBuilder" || PlayerEquipmentChange.CurrentEquip == "WallDestroyer")
+                    {
+                        PaintMenu.SetActive(false);
+                        BuildMenu.SetActive(true);
+                        BuyMenu.SetActive(false);
+                    }
+                    if (PlayerEquipmentChange.CurrentEquip == "HeldObject")
+                    {
+                        PaintMenu.SetActive(false);
+                        BuildMenu.SetActive(false);
+                        BuyMenu.SetActive(true);
+                    }
+                }
+                else
                 {
-                    PaintMenu.SetActive(true);
+                    TabMenuDisplay.SetActive(false);
+                    PaintMenu.SetActive(false);
                     BuildMenu.SetActive(false);
                     BuyMenu.SetActive(false);
                 }
-                if (PlayerEquipmentChange.CurrentEquip == "WallBuilder" || PlayerEquipmentChange.CurrentEquip == "WallDestroyer")
-                {
-                    PaintMenu.SetActive(false);
-                    BuildMenu.SetActive(true);
-                    BuyMenu.SetActive(false);
-                }
-                if (PlayerEquipmentChange.CurrentEquip == "HeldObject")
-                {
-                    PaintMenu.SetActive(false);
-                    BuildMenu.SetActive(false);
-                    BuyMenu.SetActive(true);
-                }
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseMenuDisplay.activeSelf == false)
+            {
+                PauseMenuDisplay.SetActive(true);
             }
             else
             {
-                TabMenuDisplay.SetActive(false);
-                FPSController.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().m_MouseLook.m_cursorIsLocked = true;
-                PaintMenu.SetActive(false);
-                BuildMenu.SetActive(false);
-                BuyMenu.SetActive(false);
-                reticle.text = "+";
-            } 
-
+                PauseMenuDisplay.SetActive(false);
+            }
         }
     }
 
@@ -265,4 +304,21 @@ public class TabMenu : MonoBehaviour {
         }
 
     }
+
+    void SaveButtonClick()
+    { }
+
+    void LoadButtonClick()
+    { }
+
+    void OptionsButtonClick()
+    { }
+
+    void QuitToTitleButtonClick()
+    {
+
+    }
+
+    void QuitToDesktopButtonClick()
+    { }
 }
