@@ -4888,7 +4888,6 @@ MonoBehaviour:
   BuildButton: {fileID: 1995812461}
   BuyButton: {fileID: 1165068452}
   RoofButton: {fileID: 1518495106}
-  DuplicateButton: {fileID: 2107882958}
   reticle: {fileID: 1657365052}
   CeilingTile: {fileID: 1596362363793708, guid: 6873719c4d63dce4bb13565a1e3778be,
     type: 2}

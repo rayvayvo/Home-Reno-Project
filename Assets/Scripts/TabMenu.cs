@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System;
 using TileData;
 
 public class TabMenu : MonoBehaviour {
@@ -21,8 +24,8 @@ public class TabMenu : MonoBehaviour {
     public Button BuildButton;
     public Button BuyButton;
     public Button RoofButton;
-    public Button DuplicateButton;
-    public Text reticle;
+
+        public Text reticle;
     public GameObject CeilingTile;
     public static int CeilingLowestX;
     public static int CeilingLowestY;
@@ -59,7 +62,6 @@ public class TabMenu : MonoBehaviour {
         BuildButton.onClick.AddListener(BuildButtonClick);
         BuyButton.onClick.AddListener(BuyButtonClick);
         RoofButton.onClick.AddListener(RoofButtonClick);
-        DuplicateButton.onClick.AddListener(DuplicateButtonClick);
 
         SaveButton.onClick.AddListener(SaveButtonClick);
         LoadButton.onClick.AddListener(LoadButtonClick);
@@ -236,7 +238,7 @@ public class TabMenu : MonoBehaviour {
         }
     }
 
-    void DuplicateButtonClick()
+    void LoadButtonClick()
     {
         TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
@@ -306,10 +308,67 @@ public class TabMenu : MonoBehaviour {
     }
 
     void SaveButtonClick()
-    { }
+    {
+        TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
-    void LoadButtonClick()
-    { }
+        string dataPath = Path.Combine(Application.persistentDataPath, "save1.txt");
+        string jsonString = JsonUtility.ToJson(theData.TileData);
+
+        using (StreamWriter streamWriter = File.CreateText(dataPath))
+        {
+            streamWriter.Write(jsonString);
+        }
+
+
+        /*BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/Save1.dat", FileMode.Open);
+
+
+        bf.Serialize(file, theData.TileData.gridData);
+        file.Close();
+
+        
+        var save1 = new Tile[50,50];
+        for (int x = 0; x < 50; x++)
+        {
+            for (int y = 0; y < 50; y++)
+            {
+                var SquareInfo = theData.TileData.gridData[x, y];
+
+                save1[x, y].faceS = new int[3];
+                save1[x, y].faceN = new int[3];
+                save1[x, y].faceE = new int[3];
+                save1[x, y].faceW = new int[3];
+                save1[x, y].faceT = new int[3];
+
+                save1[x, y].faceLS = new int[3];
+                save1[x, y].faceLN = new int[3];
+                save1[x, y].faceLE = new int[3];
+                save1[x, y].faceLW = new int[3];
+                save1[x, y].faceLB = new int[3];
+                save1[x, y].objectTransform = new int[3];
+                save1[x, y].contents = "Empty";
+                save1[x, y].attachedObject = "Empty";
+
+                for (int iZ = 0; iZ < 3; iZ++)
+                {
+                    save1[x, y].faceS[iZ] = 0;
+                    save1[x, y].faceN[iZ] = 0;
+                    save1[x, y].faceE[iZ] = 0;
+                    save1[x, y].faceW[iZ] = 0;
+                    save1[x, y].faceT[iZ] = 0;
+
+                    save1[x, y].faceLS[iZ] = 0;
+                    save1[x, y].faceLN[iZ] = 0;
+                    save1[x, y].faceLE[iZ] = 0;
+                    save1[x, y].faceLW[iZ] = 0;
+                    save1[x, y].faceLB[iZ] = 0;
+                    save1[x, y].objectTransform[iZ] = 0;
+                }
+                     
+            }
+        }*/
+    }
 
     void OptionsButtonClick()
     { }

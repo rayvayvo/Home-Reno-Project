@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace TileData
-{ 
+{
+    [System.Serializable]
     public struct Tile
     {
         public string contents;
@@ -23,7 +25,7 @@ namespace TileData
         public GameObject GridTile;
         public GameObject CanvasDb;
     };
-
+    [System.Serializable]
     public class Tiler
     {
         public Tile[,] gridData;
