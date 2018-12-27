@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using System;
 using TileData;
+using System;
 
 public class TabMenu : MonoBehaviour {
 
@@ -25,7 +25,7 @@ public class TabMenu : MonoBehaviour {
     public Button BuyButton;
     public Button RoofButton;
 
-        public Text reticle;
+    public Text reticle;
     public GameObject CeilingTile;
     public static int CeilingLowestX;
     public static int CeilingLowestY;
@@ -41,6 +41,10 @@ public class TabMenu : MonoBehaviour {
     public Button OptionsButton;
     public Button QuitToTitleButton;
     public Button QuitToDesktopButton;
+
+    const string folderName = "BinaryCharacterData";
+    const string fileExtension = ".dat";
+
 
     // Use this for initialization
     void Start () {
@@ -240,6 +244,48 @@ public class TabMenu : MonoBehaviour {
 
     void LoadButtonClick()
     {
+        string[] filePaths = GetFilePaths();
+
+        if (filePaths.Length > 0)
+            TileData = LoadGame(filePaths[0]);          
+    }
+
+    static Tiler LoadGame(string path)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+
+        using (FileStream fileStream = File.Open(path, FileMode.Open))
+        {
+           UIGridLocator.UIEquipText = "Loaded Game";
+            return (Tiler)bf.Deserialize(fileStream);
+        }
+    }
+
+    void SaveButtonClick()
+    {
+
+        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+        if (!Directory.Exists(folderPath))
+            Directory.CreateDirectory(folderPath);
+
+        string dataPath = Path.Combine(folderPath, TileData.gridData[0,0].contents + fileExtension);
+
+        Savegame(TileData.gridData, dataPath);
+    }
+    
+    static void Savegame(Tile[,] data, string path)
+    {
+
+        BinaryFormatter bf = new BinaryFormatter();
+        using (FileStream fileStream = File.Open(path, FileMode.OpenOrCreate))
+        {
+            bf.Serialize(fileStream, data);
+        }
+
+    }
+
+    void OptionsButtonClick()
+    {
         TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
 
         for (int iX = 0; iX < 50; iX++)
@@ -304,74 +350,7 @@ public class TabMenu : MonoBehaviour {
                 }
             }
         }
-
     }
-
-    void SaveButtonClick()
-    {
-        TabMenu theData = GameObject.FindWithTag("TileData").GetComponent<TabMenu>();
-
-        string dataPath = Path.Combine(Application.persistentDataPath, "save1.txt");
-        string jsonString = JsonUtility.ToJson(theData.TileData);
-
-        using (StreamWriter streamWriter = File.CreateText(dataPath))
-        {
-            streamWriter.Write(jsonString);
-        }
-
-
-        /*BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/Save1.dat", FileMode.Open);
-
-
-        bf.Serialize(file, theData.TileData.gridData);
-        file.Close();
-
-        
-        var save1 = new Tile[50,50];
-        for (int x = 0; x < 50; x++)
-        {
-            for (int y = 0; y < 50; y++)
-            {
-                var SquareInfo = theData.TileData.gridData[x, y];
-
-                save1[x, y].faceS = new int[3];
-                save1[x, y].faceN = new int[3];
-                save1[x, y].faceE = new int[3];
-                save1[x, y].faceW = new int[3];
-                save1[x, y].faceT = new int[3];
-
-                save1[x, y].faceLS = new int[3];
-                save1[x, y].faceLN = new int[3];
-                save1[x, y].faceLE = new int[3];
-                save1[x, y].faceLW = new int[3];
-                save1[x, y].faceLB = new int[3];
-                save1[x, y].objectTransform = new int[3];
-                save1[x, y].contents = "Empty";
-                save1[x, y].attachedObject = "Empty";
-
-                for (int iZ = 0; iZ < 3; iZ++)
-                {
-                    save1[x, y].faceS[iZ] = 0;
-                    save1[x, y].faceN[iZ] = 0;
-                    save1[x, y].faceE[iZ] = 0;
-                    save1[x, y].faceW[iZ] = 0;
-                    save1[x, y].faceT[iZ] = 0;
-
-                    save1[x, y].faceLS[iZ] = 0;
-                    save1[x, y].faceLN[iZ] = 0;
-                    save1[x, y].faceLE[iZ] = 0;
-                    save1[x, y].faceLW[iZ] = 0;
-                    save1[x, y].faceLB[iZ] = 0;
-                    save1[x, y].objectTransform[iZ] = 0;
-                }
-                     
-            }
-        }*/
-    }
-
-    void OptionsButtonClick()
-    { }
 
     void QuitToTitleButtonClick()
     {
@@ -380,4 +359,11 @@ public class TabMenu : MonoBehaviour {
 
     void QuitToDesktopButtonClick()
     { }
+
+    static string[] GetFilePaths()
+    {
+        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+
+        return Directory.GetFiles(folderPath, fileExtension);
+    }
 }

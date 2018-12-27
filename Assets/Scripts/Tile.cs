@@ -22,9 +22,8 @@ namespace TileData
         public int[] faceLB;
         public string attachedObject;
         public int[] objectTransform;
-        public GameObject GridTile;
-        public GameObject CanvasDb;
     };
+
     [System.Serializable]
     public class Tiler
     {

@@ -4898,6 +4898,7 @@ MonoBehaviour:
   OptionsButton: {fileID: 198693803}
   QuitToTitleButton: {fileID: 91956461}
   QuitToDesktopButton: {fileID: 1625749669}
+  tester: 
 --- !u!1 &1039408772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1978456401717214, guid: 12d4442e8e0508040b147422cd663d86,
