@@ -43,14 +43,20 @@ public class TabMenu : MonoBehaviour {
     public Button QuitToDesktopButton;
 
     const string folderName = "BinaryCharacterData";
-    const string fileExtension = ".dat";
 
+    public static string SaveGameName;
+    public static string LoadGameName;
+
+
+    public static Tiler loadedGame;
 
     // Use this for initialization
     void Start () {
 
         TileData = new Tiler();
+
         TileData.CreateGrid();
+
         
         for (int iX = 0; iX < 50; iX++)
         {
@@ -244,44 +250,52 @@ public class TabMenu : MonoBehaviour {
 
     void LoadButtonClick()
     {
-        string[] filePaths = GetFilePaths();
+    
+            LoadGameName = "save1";
+            string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+            string dataPath = Path.Combine(folderPath, LoadGameName + ".dat");
+            
+            loadedGame = LoadGameFiles(dataPath);
 
-        if (filePaths.Length > 0)
-            TileData = LoadGame(filePaths[0]);          
     }
 
-    static Tiler LoadGame(string path)
+    static Tiler LoadGameFiles(string path)
     {
         BinaryFormatter bf = new BinaryFormatter();
 
-        using (FileStream fileStream = File.Open(path, FileMode.Open))
+        using (FileStream fs = File.Open(path, FileMode.Open))
         {
-           UIGridLocator.UIEquipText = "Loaded Game";
-            return (Tiler)bf.Deserialize(fileStream);
+            UIGridLocator.UIEquipText = "Loaded Game";
+            return (Tiler)bf.Deserialize(fs);
         }
     }
-
     void SaveButtonClick()
     {
-
         string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+        SaveGameName = "save1";
+
         if (!Directory.Exists(folderPath))
             Directory.CreateDirectory(folderPath);
 
-        string dataPath = Path.Combine(folderPath, TileData.gridData[0,0].contents + fileExtension);
-
-        Savegame(TileData.gridData, dataPath);
+        string dataPath = Path.Combine(folderPath, SaveGameName + ".dat");
+        SaveGameFiles(TileData, dataPath);
     }
-    
-    static void Savegame(Tile[,] data, string path)
+
+    static void SaveGameFiles(Tiler data, string path)
     {
-
         BinaryFormatter bf = new BinaryFormatter();
-        using (FileStream fileStream = File.Open(path, FileMode.OpenOrCreate))
-        {
-            bf.Serialize(fileStream, data);
-        }
 
+        using (FileStream fs = File.Open(path, FileMode.OpenOrCreate))
+        {
+            bf.Serialize(fs, data);
+            UIGridLocator.UIEquipText = "Saved Game";
+        }
+    }
+
+    static string[] GetFilePaths()
+    {
+        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
+        return Directory.GetFiles(folderPath, ".dat");
     }
 
     void OptionsButtonClick()
@@ -354,16 +368,10 @@ public class TabMenu : MonoBehaviour {
 
     void QuitToTitleButtonClick()
     {
-
+        UIGridLocator.UIEquipText = loadedGame.gridData[25,12].contents;
     }
 
     void QuitToDesktopButtonClick()
     { }
 
-    static string[] GetFilePaths()
-    {
-        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
-
-        return Directory.GetFiles(folderPath, fileExtension);
-    }
 }
