@@ -66,8 +66,6 @@ public class TabMenu : MonoBehaviour {
             }
         }
 
-
-
         PaintButton.onClick.AddListener(PaintButtonClick);
         BuildButton.onClick.AddListener(BuildButtonClick);
         BuyButton.onClick.AddListener(BuyButtonClick);
@@ -353,12 +351,6 @@ public class TabMenu : MonoBehaviour {
             bf.Serialize(fs, data);
             UIGridLocator.UIEquipText = "Saved Game";
         }
-    }
-
-    static string[] GetFilePaths()
-    {
-        string folderPath = Path.Combine(Application.persistentDataPath, folderName);
-        return Directory.GetFiles(folderPath, ".dat");
     }
 
     void OptionsButtonClick()
